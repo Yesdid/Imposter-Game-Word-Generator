@@ -24,3 +24,9 @@ div {
     padding: 5px;
     padding-bottom: 50px;
 }
+
+.blurred {
+    filter: blur(12px);
+    cursor: pointer;
+    user-select: none;
+}

@@ -112,8 +112,9 @@ function showNextPlayer() {
     } else {
         message += `your word is: ${storedWord}`;
     }
-
     text.innerText = message;
+    text.classList.add('blurred');
+    text.onclick = () => text.classList.remove('blurred');
     text.style.color = "black";
     text.style.fontFamily = "Arial";
     text.style.fontSize = "20px";
@@ -166,6 +167,7 @@ function resetGame() {
     //Reset form inputs
     document.querySelector('#playerAmount').value = "";
     document.querySelector('#imposterAmount').value = "";
+    document.querySelector('#imposterAmount').style.display = 'inline';
 
     /*
     const selectedRadio = document.querySelector('input[name="imposterSettings"]:checked');
