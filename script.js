@@ -19,6 +19,17 @@ const randomWordList = [
     "bed", "table", "chair", "couch", "lamp", "fridge", "stove", "sink", "mirror", "door", "window", "carpet", "shelf", "closet", "television", "microwave", "drawer", "fan", "curtain", "blanket",
     //Nature & Weather
     "sun", "moon", "star", "rain", "snow", "wind", "cloud", "tree", "flower", "leaf", "river", "ocean", "mountain", "fire", "rock", "sand", "grass", "thunder", "ice", "storm"]
+    // Actors & Actresses
+    "Zendaya", "Ryan Reynolds", "Dwayne Johnson(ROCK)", "Emma Watson", "Keanu Reeves", "Scarlett Johansson", "Chris Hemsworth", "Timothée Chalamet",
+    // Musicians & Singers
+    "Taylor Swift", "Drake", "Beyoncé", "Ariana Grande", "Rihanna", "Justin Bieber", "Billie Eilish", "Olivia Rodrigo", "Ed Sheeran",
+    // Athletes
+    "LeBron James", "Serena Williams", "Lionel Messi", "Cristiano Ronaldo", "Simone Biles", "Steph Curry", "Naomi Osaka", "Tom Brady", "Shohei Ohtani", "Michael Jordan",
+    // Internet Celebrities / Influencers
+    "MrBeast", "Charli D'Amelio", "Markiplier", "PewDiePie", "Dream", "iShowSpeed", "Kai Cenat",
+    // Other Famous People
+    "Elon Musk", "Kim Kardashian", "Barack Obama", "Donald Trump", "Gordon Ramsay", "Andrew Tate", "Greta Thunberg", "Stephen King", "Joe Rogan"
+
 const noSelection = null;
 let currentPlayerIndex = 0;
 let selectedImposters = [];
@@ -99,8 +110,9 @@ function chooseImposters(playerCount, imposterCount) {
 }
 
 function showNextPlayer() {
+    let firstPlayer = Math.floor(Math.random()*getPlayerAmount())+1;
     if (currentPlayerIndex >= getPlayerAmount()) {
-        text.innerText = "All players have viewed their word!";
+        text.innerText = `All players have viewed their word! Player ${firstPlayer} goes first!`;
         nextButton.disabled = true;
         return;
     }
@@ -109,12 +121,14 @@ function showNextPlayer() {
     let message = `Player ${currentPlayerIndex + 1}, `;
     if (isImposter) {
         message += "you are the IMPOSTER!";
+        text.classList.add('blurred');
+        text.onclick = () => text.classList.remove('blurred');
     } else {
         message += `your word is: ${storedWord}`;
+        text.classList.add('blurred');
+        text.onclick = () => text.classList.remove('blurred');
     }
     text.innerText = message;
-    text.classList.add('blurred');
-    text.onclick = () => text.classList.remove('blurred');
     text.style.color = "black";
     text.style.fontFamily = "Arial";
     text.style.fontSize = "20px";
