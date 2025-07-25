@@ -18,7 +18,7 @@ Link to a TikTok as example!( https://www.tiktok.com/t/ZP8k8YXSp/ )
 - "Next Player" system to privately reveal roles.
 - Restart and randomization buttons.
 
-🚀 Tech
+🚀 Languages
 - HTML, CSS, JavaScript
 
 # This is my first personal project :D! In the future I would like to add features where players can choose to get asked questions and discuss based on their answers while imposters get a different set of questions! 
